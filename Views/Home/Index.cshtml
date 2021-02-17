@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "SteedBooks.com";
+}
+
+@model IQueryable<Book>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Current Book Registry:</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author Last Name</th>
+                <th>Author First Name(s)</th>
+                <th>Publisher</th>
+                <th>Price</th>
+                <th>Classification</th>
+                <th>Category</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @*This model passed in is the Models.SubmittedMovies.FilteredMovies object*@
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.Title</td>
+                    <td>@m.AuthorLastName</td>
+                    <td>@m.AuthorFirstNames</td>
+                    <td>@m.Publisher</td>
+                    <td>$@m.Price</td>
+                    <td>@m.Classification</td>
+                    <td>@m.Category</td>
+                    <td>@m.ISBN</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
