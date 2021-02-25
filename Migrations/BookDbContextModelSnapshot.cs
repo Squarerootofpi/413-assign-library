@@ -56,6 +56,9 @@ namespace assign5bookstore_413.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TotalPages")
+                        .HasColumnType("int");
+
                     b.HasKey("BookId");
 
                     b.ToTable("Books");

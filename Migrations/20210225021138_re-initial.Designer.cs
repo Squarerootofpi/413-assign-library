@@ -9,8 +9,8 @@ using assign5bookstore_413.Models;
 namespace assign5bookstore_413.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20210217194124_Initial")]
-    partial class Initial
+    [Migration("20210225021138_re-initial")]
+    partial class reinitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,6 +57,9 @@ namespace assign5bookstore_413.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TotalPages")
+                        .HasColumnType("int");
 
                     b.HasKey("BookId");
 

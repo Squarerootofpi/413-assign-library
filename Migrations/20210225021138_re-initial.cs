@@ -2,7 +2,7 @@
 
 namespace assign5bookstore_413.Migrations
 {
-    public partial class Initial : Migration
+    public partial class reinitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,7 +19,8 @@ namespace assign5bookstore_413.Migrations
                     ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Classification = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Category = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalPages = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
