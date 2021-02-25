@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace assign5bookstore_413.Models.ViewModels
 {
+    /// <summary>
+    /// Class to store all of the information/calculations about the pagination and status of data through pagination.
+    /// </summary>
     public class PagingInfo
     {
         public int TotalNumItems { get; set; }

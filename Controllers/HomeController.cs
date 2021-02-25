@@ -16,6 +16,7 @@ namespace assign5bookstore_413.Controllers
 
         private IBookRepository _repository;
 
+        //This is the amount of books listed on each page via the pagination.
         private int PageSize = 5;
         public HomeController(ILogger<HomeController> logger, IBookRepository repository)
         {
@@ -25,6 +26,7 @@ namespace assign5bookstore_413.Controllers
 
         public IActionResult Index(int page = 1)
         {
+            //This returns the pagination and book info related to the booklisting page
             return View(new BookListViewModel
             {
                 Books = _repository.Books
