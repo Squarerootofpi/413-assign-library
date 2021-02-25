@@ -2,41 +2,58 @@
     ViewData["Title"] = "SteedBooks.com";
 }
 
-@model IQueryable<Book>
+@model BookListViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Current Book Registry:</p>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author Last Name</th>
-                <th>Author First Name(s)</th>
-                <th>Publisher</th>
-                <th>Price</th>
-                <th>Classification</th>
-                <th>Category</th>
-                <th>ISBN</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @*This model passed in is the Models.SubmittedMovies.FilteredMovies object*@
-            @foreach (var m in Model)
-            {
+<div class="row">
+    <div class="col">
+        <h1 class="display-4">Welcome</h1>
+        <p>Current Book Registry:</p>
+    </div>
+    <div class="col">
+        <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
+             page-class="btn"
+             page-class-normal="btn-outline-dark"
+             class="btn-group pull-right m-1 pagination">
+        </div>
+    </div>
+    
+</div>
+<div class="">
+    <div class="justify-content-sm-center">
+        <table class="table table-borderless">
+            <thead>
                 <tr>
-                    <td>@m.Title</td>
-                    <td>@m.AuthorLastName</td>
-                    <td>@m.AuthorFirstNames</td>
-                    <td>@m.Publisher</td>
-                    <td>$@m.Price</td>
-                    <td>@m.Classification</td>
-                    <td>@m.Category</td>
-                    <td>@m.ISBN</td>
+                    <th>Title</th>
+                    <th>Author Last Name</th>
+                    <th>Author First Name(s)</th>
+                    <th>Publisher</th>
+                    <th>Price</th>
+                    <th>Total Pages</th>
+                    <th>Classification</th>
+                    <th>Cate gory</th>
+                    <th>ISBN</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+
+            <tbody>
+                @*This model passed in is the basic Iqueryable book*@
+                @foreach (var m in Model.Books)
+                {
+                    <tr>
+                        <td class="card-title">@m.Title</td>
+                        <td>@m.AuthorLastName</td>
+                        <td>@m.AuthorFirstNames</td>
+                        <td>@m.Publisher</td>
+                        <td>$@m.Price</td>
+                        <td>@m.TotalPages</td>
+                        <td>@m.Classification</td>
+                        <td>@m.Category</td>
+                        <td class="text-muted">@m.ISBN</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
 </div>

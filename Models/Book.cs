@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace assign5bookstore_413.Models
 {
+    /// <summary>
+    /// Represents a book.
+    /// </summary>
     public class Book
     {
         [Key]
@@ -44,5 +47,8 @@ namespace assign5bookstore_413.Models
         [DataType(DataType.Currency)]
         [Required(AllowEmptyStrings =false)]
         public decimal Price { get; set; }
+
+        [Required]
+        public int TotalPages { get; set; }
     }
 }

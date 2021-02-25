@@ -58,10 +58,13 @@ namespace assign5bookstore_413
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "pagination",
+                    "P{page}",
+                    new { Controller = "Home", action = "Index"});
+                endpoints.MapDefaultControllerRoute();
             });
 
+            // We want to ensure the data is populated etc....
             SeedData.EnsurePopulated(app);
         }
     }
