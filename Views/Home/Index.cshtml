@@ -12,10 +12,12 @@
     <div class="col">
         <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true"
              page-class="btn"
+             page-url-category="@Model.CurrentCategory"
              page-class-normal="btn-outline-secondary"
              page-class-selected="btn btn-outline-primary btn-outline-dark bg-info"
              class="btn-group pull-right m-1 pagination ">
         </div>
+        <vc:navigation-menu />
     </div>
     
 </div>
@@ -31,7 +33,7 @@
                     <th>Price</th>
                     <th>Total Pages</th>
                     <th>Classification</th>
-                    <th>Cate gory</th>
+                    <th>Category</th>
                     <th>ISBN</th>
                 </tr>
             </thead>
@@ -40,17 +42,7 @@
                 @*This model passed in is the generic model we can use conveniently*@
                 @foreach (var m in Model.Books)
                 {
-                    <tr>
-                        <td class="card-title">@m.Title</td>
-                        <td>@m.AuthorLastName</td>
-                        <td>@m.AuthorFirstNames</td>
-                        <td>@m.Publisher</td>
-                        <td>$@m.Price</td>
-                        <td>@m.TotalPages</td>
-                        <td>@m.Classification</td>
-                        <td>@m.Category</td>
-                        <td class="text-muted">@m.ISBN</td>
-                    </tr>
+                    <partial name="BookSummary" model="m" />
                 }
             </tbody>
         </table>

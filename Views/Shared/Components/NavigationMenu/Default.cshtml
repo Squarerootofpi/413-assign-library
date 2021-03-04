@@ -1,0 +1,30 @@
+﻿@*
+    This default cshtml navigationmenu component is just the navigation menu dropdown. 
+*@
+@{
+}
+@model IEnumerable<string>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Filter by Category
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item btn-outline-secondary"
+               asp-action="Index"
+               asp-controller="Home"
+               asp-route-category="">
+                Clear Filter
+            </a>
+
+            @foreach (string category in Model)
+            {
+                <a class="dropdown-item @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
+                   asp-action="Index"
+                   asp-controller="Home"
+                   asp-route-category="@category"
+                   asp-route-page="1">
+                    @category
+                </a>
+            }
+        </div>
+    </div>

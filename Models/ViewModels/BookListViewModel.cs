@@ -12,6 +12,9 @@ namespace assign5bookstore_413.Models.ViewModels
     {
         public IEnumerable<Book> Books { get; set; }
         public PagingInfo PagingInfo { get; set; }
-
+        /// <summary>
+        /// This variable stores the currently selected category for the view to use.
+        /// </summary>
+        public string CurrentCategory { get; set; }
     }
 }

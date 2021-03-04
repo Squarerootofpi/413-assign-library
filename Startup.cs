@@ -57,6 +57,19 @@ namespace assign5bookstore_413
 
             app.UseEndpoints(endpoints =>
             {
+                //These 4 controller routes deal with the pagination of the index.html, and the category filtering feature added.
+                endpoints.MapControllerRoute(
+                    "catpage",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute(
+                    "page",
+                    "all/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute(
+                    "category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 });
                 endpoints.MapControllerRoute(
                     "pagination",
                     "P{page}",

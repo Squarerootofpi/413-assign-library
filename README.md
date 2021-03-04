@@ -88,3 +88,96 @@ Assignment submitted via a link to a GitHub repository
 No
 Assignment NOT submitted via a link to a GitHub repository	
 0
+
+## 07
+
+### Rubric
+
+#### Program Runs
+Yes
+Program runs without error	
+10
+
+No
+Program has errors	
+0
+#### Code is Clean
+Yes
+Code is easy to read (good variable names, white space, indentation, commenting, etc.)	
+10
+
+No
+Code is difficult to read (ambiguous variable names, lack of white space, poor indentation, missing commenting, etc.)	
+0
+#### Functionality in Controller to Filter Results
+(i.e. Can filter by passing in argument to URL)	
+Yes
+The app has the built-in functionality to filter by adding an argument to the controller (i.e. "/?category=autobiography) for the category	
+10
+
+No
+App does not have ability to filter results by category	
+0
+#### User-Friendly Endpoints
+Yes
+As in the example, modify the Endpoints so that the user can add something like "/Books/Autobiography" onto the URL and get results. (NOTE: Does not need to follow that specific path.)	
+10
+
+No
+Endpoints have not been updated to select based off of category and page #.	
+0
+#### Category Dynamically Added to URL
+Yes
+When a category is selected, it appears in the URL.	
+10
+
+No
+Category does not automatically appear in URL when selected.	
+0
+#### Category Menu Inserted via ViewComponent
+Yes
+Category menu is inserted into the view by using a View Component	
+5
+
+No
+Category menu is not inserted into the view by using a View Component	
+0
+#### View Component Partial View
+Yes
+View Component partial view created and inserted via the ViewComponent	
+10
+
+No
+View Component partial view not created and inserted via the ViewComponent	
+0
+#### Filter Results by Clicking on Category
+Yes
+Navigation allows user to click on category and filter results	
+10
+
+No
+Navigation does not allow user to click on category and filter results	
+0
+#### Highlighting Selected Category
+Yes
+Clicking on a category causes that category to be highlighted	
+10
+
+No
+Click on a category does not cause that category to be highlighted	
+0
+#### Page Numbering Matches Results
+Yes
+Page numbering matches results	
+10
+
+Not developed
+Page numbering does not match results	
+0
+#### Submitted via GitHub Repository
+Yes
+Submitted via link to GitHub Repository (containing only the code for this assignment)	
+5
+
+No
+Not submitted via link to GitHub Repository or link goes to a previous or future assignment	

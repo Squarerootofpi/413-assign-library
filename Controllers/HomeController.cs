@@ -24,13 +24,14 @@ namespace assign5bookstore_413.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
             //This returns the pagination and book info related to the booklisting page
             return View(new BookListViewModel
             {
-                Books = _repository.Books
-                    .OrderBy(p => p.BookId)
+                Books = _repository.Books //This specifies how to do it if there is or isn't a category. 
+                .Where(b => category == null || b.Category == category)
+                    .OrderBy(b => b.BookId)
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize)
                 ,
@@ -38,8 +39,13 @@ namespace assign5bookstore_413.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = _repository.Books.Count()
-                }
+                    TotalNumItems = 
+                        _repository.
+                            Books.
+                            Where(b => category == null || b.Category == category).
+                            Count()
+                },
+                CurrentCategory = category
             });
         }
 
