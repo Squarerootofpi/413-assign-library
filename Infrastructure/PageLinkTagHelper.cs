@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace assign5bookstore_413.Infrastructure
 {
+    /// <summary>
+    /// This is a custom taghelper
+    /// </summary>
     // Tells which element this is going to apply to.
     [HtmlTargetElement("div", Attributes = "page-model")]
     public class PageLinkTagHelper : TagHelper
@@ -45,7 +48,7 @@ namespace assign5bookstore_413.Infrastructure
             {
 
                 TagBuilder tag = new TagBuilder("a");
-                PageUrlValues["page"] = i;
+                PageUrlValues["pageNum"] = i;
 
                 tag.Attributes["href"] = urlHelper.Action(PageAction, 
                     PageUrlValues);

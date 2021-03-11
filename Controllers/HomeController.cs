@@ -24,7 +24,7 @@ namespace assign5bookstore_413.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(string category, int page = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             //This returns the pagination and book info related to the booklisting page
             return View(new BookListViewModel
@@ -32,12 +32,12 @@ namespace assign5bookstore_413.Controllers
                 Books = _repository.Books //This specifies how to do it if there is or isn't a category. 
                 .Where(b => category == null || b.Category == category)
                     .OrderBy(b => b.BookId)
-                    .Skip((page - 1) * PageSize)
+                    .Skip((pageNum - 1) * PageSize)
                     .Take(PageSize)
                 ,
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = page,
+                    CurrentPage = pageNum,
                     ItemsPerPage = PageSize,
                     TotalNumItems = 
                         _repository.

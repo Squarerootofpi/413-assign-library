@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,6 +34,12 @@ namespace assign5bookstore_413
             });
 
             services.AddScoped<IBookRepository, EFBookRepository>();
+
+            services.AddRazorPages();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +57,7 @@ namespace assign5bookstore_413
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
@@ -60,11 +68,11 @@ namespace assign5bookstore_413
                 //These 4 controller routes deal with the pagination of the index.html, and the category filtering feature added.
                 endpoints.MapControllerRoute(
                     "catpage",
-                    "{category}/{page:int}",
+                    "{category}/{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
                 endpoints.MapControllerRoute(
                     "page",
-                    "all/{page:int}",
+                    "all/{pageNum:int}",
                     new { Controller = "Home", action = "Index" });
                 endpoints.MapControllerRoute(
                     "category",
@@ -72,9 +80,11 @@ namespace assign5bookstore_413
                     new { Controller = "Home", action = "Index", page = 1 });
                 endpoints.MapControllerRoute(
                     "pagination",
-                    "P{page}",
+                    "P{pageNum}",
                     new { Controller = "Home", action = "Index"});
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
 
             // We want to ensure the data is populated etc....

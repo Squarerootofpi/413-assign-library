@@ -181,3 +181,70 @@ Submitted via link to GitHub Repository (containing only the code for this assig
 
 No
 Not submitted via link to GitHub Repository or link goes to a previous or future assignment	
+
+## 08
+
+#### Program Runs w/o Error
+Yes
+Program runs without any errors	
+10
+
+No
+Program has errors	
+0
+#### Code is Clean
+Yes
+Code is easy to read (good indentation, commenting, variable names, etc.)	
+10
+
+No
+Code is difficult to read (ambiguous variable names, missing commenting, poor indentation, etc.)	
+0
+#### App Uses a SQLite Database
+Yes
+Database has been converted to SQLite.	
+5
+
+No
+Database has NOT been converted to SQLite.	
+0
+#### Cart is Displayed via a Razor Page
+Yes
+Cart is displayed by using a Razor Page.	
+10
+
+No
+Cart is displayed using something other than a Razor Page.	
+0
+#### Cart Updates Qty & Price with New Items
+Yes
+The app has the ability to add items to the cart and have the quantity, subtotal, and total all updated.	
+20
+
+No
+The app does not have the ability to add items to the cart and have the quantity, subtotal, and total all updated.	
+0
+#### Cart Has Ability to Remove Item
+Yes
+The app has the ability to remove an item from the cart.	
+20
+
+No
+The app does NOT have the ability to remove an item from the cart.	
+0
+#### Cart Summary is Displayed in Navbar
+Yes
+A summary of the cart (# items, price) is displayed in the navbar across the pages in the app.	
+20
+
+No
+A summary of the cart is NOT displayed in the navbar across the pages in the app.	
+0
+#### Submitted via GitHub
+Yes
+Assignment is submitted via a link to a GitHub repository	
+5
+
+No
+Assignment is submitted via a .zip file or some other way other than a link to a GitHub repository	
+0
